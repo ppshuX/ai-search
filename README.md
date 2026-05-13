@@ -8,7 +8,7 @@
 
 项目同时提供本地演示模式：没有配置 API Key 时也能跑通页面、流式输出、搜索结果、引用来源、搜索历史和相关问题等核心交互。
 
-<img width="640" height="364" alt="image" src="https://github.com/user-attachments/assets/646d5d2c-e19c-4bf4-897b-99c47f1d9903" />
+<img width="640" height="365" alt="image" src="https://github.com/user-attachments/assets/646d5d2c-e19c-4bf4-897b-99c47f1d9903" />
 
 ## 功能特性
 
@@ -20,6 +20,9 @@
 - 搜索历史：浏览器本地保存最近 10 条搜索记录，支持一键复用和清空。
 - 演示模式：缺少 Tavily 或 DeepSeek Key 时自动使用内置演示数据。
 - 端到端检查：`scripts/e2e-check.cjs` 会启动前后端并用 Chrome 验证主要 UI 流程。
+
+<img width="640" height="420" alt="image" src="https://github.com/user-attachments/assets/dc685add-fc32-46ac-8497-f771e8d69763" />
+
 
 ## 技术栈
 
