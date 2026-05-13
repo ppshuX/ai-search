@@ -8,6 +8,8 @@
 
 项目同时提供本地演示模式：没有配置 API Key 时也能跑通页面、流式输出、搜索结果、引用来源、搜索历史和相关问题等核心交互。
 
+<img width="640" height="364" alt="image" src="https://github.com/user-attachments/assets/646d5d2c-e19c-4bf4-897b-99c47f1d9903" />
+
 ## 功能特性
 
 - 自然语言搜索：输入任意问题后触发联网搜索和 AI 综合回答。
