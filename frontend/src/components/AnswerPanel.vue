@@ -26,7 +26,7 @@ const fallbackCitations = computed(() => props.sources.slice(0, 3).map((source) 
     <p v-if="answer && sources.length && !hasInlineCitation" class="citation-fallback">
       参考来源：{{ fallbackCitations }}
     </p>
-    <div v-else class="empty-answer">正在检索网页并组织答案。</div>
+    <div v-if="!answer" class="empty-answer">正在检索网页并组织答案。</div>
 
     <div v-if="sources.length" class="source-list">
       <h3>引用来源</h3>

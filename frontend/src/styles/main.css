@@ -17,6 +17,13 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
+  overflow-x: hidden;
+}
+
+html,
+#app {
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 button,
@@ -202,6 +209,7 @@ a {
 .results-view {
   min-height: 100vh;
   background: #ffffff;
+  overflow-x: hidden;
 }
 
 .topbar {
@@ -209,10 +217,10 @@ a {
   top: 0;
   z-index: 10;
   display: grid;
-  grid-template-columns: 180px 1fr;
-  gap: 24px;
+  grid-template-columns: 180px minmax(420px, 760px) 1fr;
+  gap: 20px;
   align-items: center;
-  padding: 14px 24px;
+  padding: 12px 28px;
   border-bottom: 1px solid #e2e8f0;
   background: rgba(255, 255, 255, 0.96);
   backdrop-filter: blur(10px);
@@ -223,27 +231,29 @@ a {
   background: transparent;
   color: #171717;
   font-weight: 800;
-  font-size: 18px;
+  font-size: 15px;
   text-align: left;
 }
 
 .content-grid {
   display: grid;
-  grid-template-columns: 260px minmax(0, 1fr);
-  gap: 28px;
-  width: min(1380px, 100%);
+  grid-template-columns: 220px minmax(0, 920px);
+  gap: 24px;
+  width: min(1180px, calc(100% - 48px));
   margin: 0 auto;
-  padding: 24px;
+  padding: 22px 28px 48px;
+  justify-content: center;
+  overflow: hidden;
 }
 
 .side-rail {
   position: sticky;
-  top: 94px;
-  height: calc(100vh - 112px);
+  top: 84px;
+  height: calc(100vh - 104px);
   align-self: start;
   overflow: auto;
   border-right: 1px solid #e2e8f0;
-  padding-right: 18px;
+  padding-right: 14px;
 }
 
 .rail-heading,
@@ -283,11 +293,14 @@ a {
 }
 
 .main-column {
-  width: min(920px, 100%);
+  width: 100%;
+  max-width: 920px;
+  min-width: 0;
+  overflow: hidden;
 }
 
 .query-line {
-  padding: 8px 0 20px;
+  padding: 6px 0 18px;
 }
 
 .query-line span {
@@ -298,7 +311,7 @@ a {
 
 .query-line h1 {
   margin: 8px 0 0;
-  font-size: 32px;
+  font-size: 28px;
   line-height: 1.25;
   letter-spacing: 0;
 }
@@ -307,17 +320,20 @@ a {
 .results-panel,
 .related-panel {
   border-top: 1px solid #e2e8f0;
-  padding: 22px 0;
+  padding: 20px 0;
+  min-width: 0;
+  max-width: 100%;
+  overflow: hidden;
 }
 
 .section-heading {
-  min-height: 32px;
-  margin-bottom: 14px;
+  min-height: 28px;
+  margin-bottom: 12px;
 }
 
 .section-heading h2 {
   margin: 0;
-  font-size: 18px;
+  font-size: 16px;
   letter-spacing: 0;
 }
 
@@ -338,8 +354,9 @@ a {
 
 .markdown-body {
   color: #1e293b;
-  line-height: 1.8;
-  font-size: 16px;
+  line-height: 1.75;
+  font-size: 15px;
+  max-width: 900px;
 }
 
 .markdown-body p {
@@ -381,9 +398,10 @@ a {
 }
 
 .source-list {
-  margin-top: 20px;
+  margin-top: 16px;
   display: grid;
-  gap: 8px;
+  gap: 7px;
+  max-width: 900px;
 }
 
 .source-list h3 {
@@ -397,7 +415,7 @@ a {
   gap: 10px;
   align-items: center;
   min-width: 0;
-  padding: 10px 12px;
+  padding: 8px 10px;
   border: 1px solid #e2e8f0;
   border-radius: 8px;
   color: #334155;
@@ -423,17 +441,23 @@ a {
 }
 
 .related-list button {
-  padding: 10px 12px;
+  padding: 8px 11px;
+  font-size: 14px;
 }
 
 .result-list {
   display: grid;
-  gap: 12px;
+  gap: 10px;
+  min-width: 0;
+  max-width: 100%;
 }
 
 .result-item {
   display: block;
-  padding: 16px;
+  min-width: 0;
+  max-width: 100%;
+  overflow: hidden;
+  padding: 14px 16px;
   border: 1px solid #e2e8f0;
   border-radius: 8px;
   background: #ffffff;
@@ -447,14 +471,16 @@ a {
 
 .result-topline {
   min-width: 0;
+  max-width: 100%;
+  overflow: hidden;
   color: #64748b;
-  font-size: 13px;
+  font-size: 12px;
 }
 
 .result-index {
   display: inline-grid;
-  width: 24px;
-  height: 24px;
+  width: 22px;
+  height: 22px;
   place-items: center;
   flex: 0 0 auto;
   border-radius: 6px;
@@ -464,21 +490,31 @@ a {
 }
 
 .result-url {
+  min-width: 0;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
 .result-item h3 {
-  margin: 10px 0 8px;
-  font-size: 18px;
+  margin: 8px 0 6px;
+  font-size: 16px;
   line-height: 1.35;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .result-item p {
   margin: 0;
   color: #475569;
-  line-height: 1.65;
+  line-height: 1.6;
+  font-size: 14px;
+  display: -webkit-box;
+  overflow: hidden;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
 }
 
 .error-banner {
@@ -534,6 +570,17 @@ a {
 
   .rail-section {
     display: none;
+  }
+}
+
+@media (min-width: 1600px) {
+  .content-grid {
+    grid-template-columns: 230px minmax(0, 980px);
+    width: min(1260px, calc(100% - 64px));
+  }
+
+  .main-column {
+    max-width: 980px;
   }
 }
 

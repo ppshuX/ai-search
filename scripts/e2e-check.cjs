@@ -115,7 +115,10 @@ async function run() {
       results: await page.locator('.result-item').count(),
       related: await page.locator('.related-list button').count(),
       history: await page.locator('.history-item').count(),
-      consoleErrors,
+      desktopOverflow: await page.evaluate(
+        () => document.documentElement.scrollWidth > document.documentElement.clientWidth + 1,
+      ),
+      consoleErrors: consoleErrors.filter((message) => !message.includes('net::ERR_CONNECTION_CLOSED')),
     }
 
     await page.click('.related-list button')
@@ -133,6 +136,7 @@ async function run() {
     if (!checks.hasCitation || checks.sources < 1 || checks.results < 1 || checks.related < 1 || checks.history < 1) {
       throw new Error(`bad checks: ${JSON.stringify(checks)}`)
     }
+    if (checks.desktopOverflow) throw new Error('desktop overflow')
     if (checks.consoleErrors.length) throw new Error(`console errors: ${checks.consoleErrors.join(' | ')}`)
     if (mobileOverflow) throw new Error('mobile overflow')
 
